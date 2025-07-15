@@ -8,7 +8,10 @@ class SearchIcon extends StatelessWidget {
     return Container(
       height: 48,
       width: 48,
-      decoration: BoxDecoration(color: Colors.white.withValues(alpha: 0.05)),
+      decoration: BoxDecoration(
+        color: Colors.white.withValues(alpha: 0.05),
+        borderRadius: BorderRadius.circular(16),
+      ),
       child: IconButton(onPressed: () {}, icon: Icon(Icons.search, size: 28)),
     );
   }
