@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:hive_flutter/adapters.dart';
+import 'package:mindvault/constant.dart';
 import 'package:mindvault/views/notes_view.dart';
 
-void main() {
+void main() async {
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(statusBarColor: Colors.transparent),
   );
+  await Hive.initFlutter();
+  await Hive.openBox(kNotesBox);
   runApp(const MindVault());
 }
 
