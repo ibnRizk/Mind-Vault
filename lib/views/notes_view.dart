@@ -9,6 +9,8 @@ class NotesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
+
       floatingActionButton: FloatingActionButton(
         shape: CircleBorder(),
         backgroundColor: const Color.fromARGB(255, 112, 161, 247),

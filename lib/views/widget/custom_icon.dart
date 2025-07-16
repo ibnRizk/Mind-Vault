@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SearchIcon extends StatelessWidget {
-  const SearchIcon({super.key, required this.icon, this.onpressed});
+class CustomIcon extends StatelessWidget {
+  const CustomIcon({super.key, required this.icon, this.onpressed});
   final IconData icon;
   final void Function()? onpressed;
   @override
