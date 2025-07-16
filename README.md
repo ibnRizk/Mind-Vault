@@ -1,16 +1,26 @@
-# mindvault
+# 📝 Mind Vault App
 
-A new Flutter project.
+A simple and elegant notes app built using Flutter and Hive (local NoSQL database).  
+It allows users to create, edit, and delete notes with support for light/dark themes.
 
-## Getting Started
+## 📱 Screenshots
 
-This project is a starting point for a Flutter application.
+| Home | Add Note | Edit Note |
+|------|----------|-----------|
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 🚀 Features
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- 📒 Create and save notes
+- 🧾 Edit existing notes
+- 🗑️ Delete notes
+- 🌙 Light & Dark mode support
+- ⚡️ Super fast with Hive local DB
+- 💡 Clean UI with responsive layout
+
+## 🛠️ Tech Stack
+
+- Flutter – UI SDK by Google  
+- Hive – Lightweight key-value database  
+- Cubit – State management  
+- Path Provider – To access local storage
