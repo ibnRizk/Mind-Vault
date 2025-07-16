@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:mindvault/cubits/add_note_cubit/add_note_cubit.dart';
+import 'package:mindvault/models/note_model.dart';
 
 import 'custom_button.dart';
 import 'custom_text_field.dart';
@@ -43,6 +46,13 @@ class _AddNoteFormState extends State<AddNoteForm> {
             ontap: () {
               if (FormKey.currentState!.validate()) {
                 FormKey.currentState!.save();
+                var noteModel = NoteModel(
+                  title: title!,
+                  subTitle: subTitle!,
+                  data: DateTime.now().toString(),
+                  color: Colors.red.value,
+                );
+                BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
               } else {
                 autovalidateMode = AutovalidateMode.always;
                 setState(() {});
