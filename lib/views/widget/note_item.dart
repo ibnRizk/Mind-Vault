@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:mindvault/models/note_model.dart';
 import 'package:mindvault/views/edit_note_view.dart';
 
 class NoteItem extends StatelessWidget {
-  const NoteItem({super.key});
-
+  const NoteItem({super.key, required this.noteModel});
+  final NoteModel noteModel;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -29,7 +30,7 @@ class NoteItem extends StatelessWidget {
             ListTile(
               contentPadding: EdgeInsets.zero,
               title: Text(
-                'Flutter Tips',
+                noteModel.title,
                 style: TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
@@ -39,7 +40,7 @@ class NoteItem extends StatelessWidget {
               subtitle: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 16),
                 child: Text(
-                  'Build your career with Hussein Rizk',
+                  noteModel.subTitle,
                   style: TextStyle(
                     color: Colors.black.withValues(alpha: 0.6),
                     fontSize: 18,
@@ -48,14 +49,16 @@ class NoteItem extends StatelessWidget {
               ),
               trailing: IconButton(
                 padding: EdgeInsets.zero,
-                onPressed: () {},
+                onPressed: () {
+                  noteModel.delete();
+                },
                 icon: Icon(Icons.delete, color: Colors.black, size: 30),
               ),
             ),
             Padding(
               padding: const EdgeInsets.only(right: 12),
               child: Text(
-                'may21, 2025',
+                noteModel.data,
                 style: TextStyle(
                   fontSize: 16,
                   color: Colors.black.withValues(alpha: 0.6),

@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:mindvault/constant.dart';
+import 'package:mindvault/cubits/notes_cubit/notes_cubit.dart';
 import 'package:mindvault/models/note_model.dart';
 import 'package:mindvault/simple_bloc_observer.dart';
 import 'package:mindvault/views/notes_view.dart';
@@ -25,10 +26,13 @@ class MindVault extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(brightness: Brightness.dark, fontFamily: 'Poppins'),
-      home: NotesView(),
+    return BlocProvider(
+      create: (context) => NotesCubit(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(brightness: Brightness.dark, fontFamily: 'Poppins'),
+        home: NotesView(),
+      ),
     );
   }
 }
