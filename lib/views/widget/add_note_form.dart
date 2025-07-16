@@ -42,21 +42,26 @@ class _AddNoteFormState extends State<AddNoteForm> {
           ),
           SizedBox(height: 32),
 
-          CustomButton(
-            ontap: () {
-              if (FormKey.currentState!.validate()) {
-                FormKey.currentState!.save();
-                var noteModel = NoteModel(
-                  title: title!,
-                  subTitle: subTitle!,
-                  data: DateTime.now().toString(),
-                  color: Colors.red.value,
-                );
-                BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
-              } else {
-                autovalidateMode = AutovalidateMode.always;
-                setState(() {});
-              }
+          BlocBuilder<AddNoteCubit, AddNoteState>(
+            builder: (context, state) {
+              return CustomButton(
+                isLoading: state is AddNoteLoading ? true : false,
+                ontap: () {
+                  if (FormKey.currentState!.validate()) {
+                    FormKey.currentState!.save();
+                    var noteModel = NoteModel(
+                      title: title!,
+                      subTitle: subTitle!,
+                      data: DateTime.now().toString(),
+                      color: Colors.red.value,
+                    );
+                    BlocProvider.of<AddNoteCubit>(context).addNote(noteModel);
+                  } else {
+                    autovalidateMode = AutovalidateMode.always;
+                    setState(() {});
+                  }
+                },
+              );
             },
           ),
           SizedBox(height: 32),
